@@ -43,7 +43,7 @@ asdf install rstash latest
 asdf global rstash latest
 
 # Now rstash commands are available
-rstash --help
+rstash help
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to

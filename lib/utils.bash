@@ -4,7 +4,7 @@ set -euo pipefail
 
 GH_REPO="https://github.com/otto-de/rstash"
 TOOL_NAME="rstash"
-TOOL_TEST="rstash --help"
+TOOL_TEST="rstash help"
 
 fail() {
   echo -e "asdf-$TOOL_NAME: $*"
