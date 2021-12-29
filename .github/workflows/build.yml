@@ -18,6 +18,8 @@ jobs:
     env:
       ASDF_DATA_DIR: ~/.asdf-data
     steps:
+      - name: Check variable
+        run:  echo $ASDF_DATA_DIR
       - name: Checkout
         uses: actions/checkout@v2.4.0
       - name: Cache tool installation
