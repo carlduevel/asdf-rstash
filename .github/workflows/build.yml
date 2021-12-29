@@ -20,10 +20,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2.4.0
-      - name: Cache node modules
+      - name: Cache tool installation
         uses: actions/cache@v2
         env:
-          cache-name: cache-asdf-install
+          cache-name: cache-tools
         with:
           path: ${{ env.ASDF_DATA_DIR }}
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.tool-versions') }}
@@ -34,4 +34,7 @@ jobs:
       - name: asdf_install
         uses: asdf-vm/actions/install@v1
       - name: asdf_plugin_test
-        run: make test
+        run: |
+           echo $ASDF_DATA_DIR
+           ls -l $ASDF_DATA_DIR
+           make test
