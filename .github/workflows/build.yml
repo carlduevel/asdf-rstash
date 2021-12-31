@@ -27,10 +27,6 @@ jobs:
         with:
           path: ${{ env.ASDF_DATA_DIR }}
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.tool-versions') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
       - name: asdf_install
         uses: asdf-vm/actions/install@v1
       - name: asdf_plugin_test
