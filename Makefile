@@ -24,6 +24,7 @@ install-asdf: ## install asdf for bash
 >     @git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
 >     @echo -e '\nsource $$HOME/.asdf/asdf.sh' >> ~/.bashrc
 >     @source $$HOME/.asdf/asdf.sh
+>     command -v asdf
 > @fi
 
 
