@@ -4,6 +4,7 @@ SHELL := bash
 .DELETE_ON_ERROR:
 MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --no-builtin-rules
+PLUGIN_NAME := rstash
 
 ifeq ($(origin .RECIPEPREFIX), undefined)
   $(error This Make does not support .RECIPEPREFIX. Please use GNU Make 4.0 or later)
@@ -24,7 +25,7 @@ install-asdf: ## install asdf for bash
 >     @echo -e '\nsource $$HOME/.asdf/asdf.sh' >> ~/.bashrc
 >     @source $$HOME/.asdf/asdf.sh
 > @fi
- 
+
 
 
 install-tools: install-asdf ## install all tools needed with the asdf version manager
