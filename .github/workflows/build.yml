@@ -9,7 +9,9 @@ on:
 jobs:
   plugin_test:
     name: asdf plugin test
-    shell: bash -ieo pipefail {0}
+    defaults:
+      run:
+        shell: bash -ieo pipefail {0} #use bashrc
     strategy:
       matrix:
         os:
