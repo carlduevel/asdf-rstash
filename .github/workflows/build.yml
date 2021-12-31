@@ -26,7 +26,7 @@ jobs:
           cache-name: cache-tools
         with:
           path: ${{ env.ASDF_DATA_DIR }}
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.tool-versions') }}
+          key: ${{ runner.os }}-${{ matrix.env }}-build-${{ env.cache-name }}-${{ hashFiles('.tool-versions') }}
       - name: asdf_install
         uses: asdf-vm/actions/install@v1
       - name: asdf_plugin_test
