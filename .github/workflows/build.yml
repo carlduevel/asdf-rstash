@@ -27,8 +27,8 @@ jobs:
         with:
           path: ${{ env.ASDF_DATA_DIR }}
           key: ${{ runner.os }}-${{ matrix.env }}-build-${{ env.cache-name }}-${{ hashFiles('.tool-versions') }}
-      - name: asdf_install
-        uses: asdf-vm/actions/install@v1
+      - name: tool-installation
+        run:  make install-tools 
       - name: asdf_plugin_test
         run: |
            echo $ASDF_DATA_DIR
