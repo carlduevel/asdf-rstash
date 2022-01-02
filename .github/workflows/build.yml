@@ -2,6 +2,8 @@ name: Build
 
 on:
   push:
+    branches:
+      - main
   pull_request:
   schedule:
     - cron: '11 1 * * 1'
@@ -15,26 +17,8 @@ jobs:
           - ubuntu-latest
           - macos-latest
     runs-on: ${{ matrix.os }}
-    env:
-      ASDF_DATA_DIR: ~/.asdf-data
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2.4.0
-      - name: Cache tool installation
-        uses: actions/cache@v2
-        env:
-          cache-name: cache-tools
-        with:
-          path: ${{ env.ASDF_DATA_DIR }}
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('.tool-versions') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: asdf_install
-        uses: asdf-vm/actions/install@v1
       - name: asdf_plugin_test
-        run: |
-           echo $ASDF_DATA_DIR
-           ls -l $ASDF_DATA_DIR
-           make test
+        uses: asdf-vm/actions/plugin-test@v1
+        with:
+          command: rstash help
